@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Website Header</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body { 
+            background-color: #f0f4f8; 
+            transition: background-color 0.3s, color 0.3s; 
+        }
+        .header, .footer { 
+            padding: 20px; 
+            font-size: 1.5rem; 
+            font-weight: bold; 
+            text-align: center; 
+        }
+        .header-section { 
+            background-color: #ffcccb; 
+            border-radius: 10px; 
+            color: #4a4a4a; 
+        }
+        .navigation-bar { 
+            background-color: #ffe4e1; 
+            border-radius: 10px; 
+            color: #4a4a4a; 
+        }
+        .main-content { 
+            background: #ffffff; 
+            border-radius: 10px; 
+            padding: 20px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+        .sidebar { 
+            padding: 15px; 
+            border-radius: 10px; 
+            background: #ffcccb; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        }
+        .content-card { 
+            background: #ffffff; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            padding: 10px; 
+        }
+        .btn-custom { 
+            background-color: #ffb3ba; 
+            color: white; 
+            border-radius: 10px; 
+            transition: 0.3s; 
+        }
+        .btn-custom:hover { 
+            background-color: #ff6f61; 
+            color: white; 
+        }
+        .section-title { 
+            font-size: 1.3rem; 
+            font-weight: bold; 
+            margin-bottom: 15px; 
+            color: #333; 
+        }
+        .image-placeholder { 
+            width: 100%; 
+            height: 200px; 
+            background-color: #ffe4e1; 
+            border-radius: 10px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #777; 
+        }
+        .feed-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+            justify-content: center; 
+        }
+        .feed-item { 
+            width: calc(33.333% - 10px); 
+            background: #ffffff; 
+            padding: 10px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.2s; 
+        }
+        .feed-item:hover { 
+            transform: scale(1.02); 
+        }
+        .feed-img { 
+            width: 100%; 
+            height: 250px; 
+            background: #ffe4e1; 
+            border-radius: 10px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #777; 
+        }
+        .dark-mode { 
+            background-color: #343a40; 
+            color: white; 
+        }
+        .dark-mode .header-section, 
+        .dark-mode .navigation-bar, 
+        .dark-mode .sidebar, 
+        .dark-mode .content-card { 
+            background-color: #495057; 
+            color: white; 
+        }
+        .dark-mode .btn-custom { 
+            background-color: #ff6f61; 
+        }
+        .dark-mode .btn-custom:hover { 
+            background-color: #ffb3ba; 
+        }
+        .toast { 
+            position: fixed; 
+            top: 20px; 
+            right: 20px; 
+            z-index: 1050; 
+        }
+        .chat-container { 
+            max-height: 300px; 
+            overflow-y: auto; 
+            border: 1px solid #ccc; 
+            border-radius: 10px; 
+            padding: 10px; 
+            background: #ffffff; 
+            margin-top: 20px; 
+        }
+        .chat-message { 
+            margin-bottom: 10px; 
+            padding: 5px; 
+            border-radius: 5px; 
+        }
+        .chat-message.user1 { 
+            background-color: #d1e7dd; 
+        }
+        .chat-message.user2 { 
+            background-color: #f8d7da; 
+        }
+        .chat-message .user { 
+            font-weight: bold; 
+        }
+        .chat-message .text { 
+            margin-left: 10px; 
+        }
+        .post-content { 
+            padding: 10px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center mt-4">
+        <header class="row">
+            <div class="col header-section header">Main Website Header</div>
+        </header>
+        <nav class="row my-3">
+            <div class="col navigation-bar p-3 rounded shadow-sm">
+                <button class="btn btn-custom" id="darkModeToggle">Toggle Dark Mode</button>
+                <div class="dropdown d-inline">
+                    <button class="btn btn-custom dropdown-toggle" type="button" id="button" data-bs-toggle="dropdown" aria-expanded="false">
+                         <i class="button"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="button">
+                        <li><a class="dropdown-item" href="#">No new notifications</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="row">
+            <aside class="col-md-2 sidebar">
+                <div class="content-card mb-3">
+                    <h5 class="section-title">Profile Overview</h5>
+                    <img src="https://via.placeholder.com/150" alt="User Picture" class="img-fluid rounded mb-2">
+                    <button class="btn btn-custom w-100" aria-label="Edit Profile">Button 1</button>
+                </div>
+                <div class="content-card mb-3">
+                    <h5 class="section-title">Site Navigation</h5>
+                    <button class="btn btn-custom w-100 mb-2" aria-label="button">Button 2</button>
+                    <button class="btn btn-custom w-100 mb-2" aria-label="button">Button 3</button>
+                    <button class="btn btn-custom w-100 mb-2" aria-label="button">Button 4</button>
+                    <button class="btn btn-custom w-100" aria-label="button">Button 5</button>
+                </div>
+                <div class="content-card mb-3">
+                    <h5 class="section-title">Search Bar</h5>
+                    <input type="text" class="form-control mb-2" placeholder="Search..." aria-label="Search">
+                </div>
+                <div class="content-card mb-3">
+                    <h5 class="section-title">Recent Messages</h5>
+                    <ul class="list-unstyled">
+                        <li>Message 1</li>
+                        <li>Message 2</li>
+                        <li>Message 3</li>
+                    </ul>
+                </div>
+                <div class="content-card">
+                    <h5 class="section-title">Pending Friend Requests</h5>
+                    <button class="btn btn-custom w-100" aria-label="Accept Friend Request">Button 6</button>
+                </div>
+            </aside>
+            <main class="col-md-8 main-content">
+                <h4 class="section-title">Latest Posts</h4>
+                <div class="image-placeholder mb-3">Upload Your Content</div>
+                <button class="btn btn-custom mb-3" data-bs-toggle="modal" data-bs-target="#uploadModal">Button 7</button>
+                
+                <!-- Post 1 -->
+                <div class="content-card mb-3">
+                    <h5>Blog Post Title</h5>
+                    <div class="post-content">
+                        <p>This is a sample post content. You can replace this with actual content.</p>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="content-card mb-3">
+                    <h5>Post Title</h5>
+                    <div class="post-content">
+                        <p>This is another sample post content. You can replace this with actual content.</p>
+                    </div>
+                </div>
+
+                <h4 class="section-title">Gallery Highlights</h4>
+                <div class="feed-container">
+                    <div class="feed-item">
+                        <div class="feed-img">Image 1</div>
+                        <p>Post Description 1</p>
+                    </div>
+                    <div class="feed-item">
+                        <div class="feed-img">Image 2</div>
+                        <p>Post Description 2</p>
+                    </div>
+                    <div class="feed-item">
+                        <div class="feed-img">Image 3</div>
+                        <p>Post Description 3</p>
+                    </div>
+                </div>
+
+                <!-- Chat Section -->
+                <div class="chat-container mb-3">
+                    <div class="chat-message user1">
+                        <span class="user">User  1:</span>
+                        <span class="text">Lorem ipsum dolor sit amet.</span>
+                    </div>
+                    <div class="chat-message user2">
+                        <span class="user">User  2:</span>
+                        <span class="text">Consectetur adipiscing elit.</span>
+                    </div>
+                </div>
+                <input type="text" class="form-control mb-2" placeholder="Type a message..." aria-label="Chat Message">
+                <button class="btn btn-custom" aria-label="Send Message" onclick="showToast('Message sent!')">Button 8</button>
+            </main>
+            <aside class="col-md-2 sidebar">
+                <div class="content-card mb-3">
+                    <h5 class="section-title">Latest Announcements</h5>
+                    <p>Update 1: Lorem ipsum dolor sit amet.</p>
+                    <p>Update 2: Consectetur adipiscing elit.</p>
+                </div>
+                <div class="content-card mb-3">
+                    <h5 class="section-title">Popular Discussions</h5>
+                    <ul class="list-unstyled">
+                        <li>#Topic1</li>
+                        <li>#Topic2</li>
+                        <li>#Topic3</li>
+                    </ul>
+                </div>
+                <div class="content-card mb-3">
+                    <h5 class="section-title">Active Friends</h5>
+                    <ul class="list-unstyled">
+                        <li>Friend 1</li>
+                        <li>Friend 2</li>
+                        <li>Friend 3</li>
+                    </ul>
+                </div>
+                <div class="content-card mb-3">
+                    <h5 class="section-title">Events Calendar</h5>
+                    <ul class="list-unstyled">
+                        <li>Event 1: Date</li>
+                        <li>Event 2: Date</li>
+                        <li>Event 3: Date</li>
+                    </ul>
+                </div>
+                <div class="content-card mb-3">
+                    <h5 class="section-title">Create New Group</h5>
+                    <button class="btn btn-custom w-100" aria-label="Create New Group">Create Group</button>
+                </div>
+                <div class="content-card">
+                    <h5 class="section-title">Notifications</h5>
+                    <ul class="list-unstyled">
+                        <li>Notification 1</li>
+                        <li>Notification 2</li>
+                        <li>Notification 3</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <footer class="row mt-3">
+            <div class="col navigation-bar footer">Website Footer & Links</div>
+            <div class="col header-section footer">Website Footer & Links</div>
+        </footer>
+    </div>
+
+    <!-- Modal for Image Upload -->
+    <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="uploadModalLabel">Upload Image</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="file" class="form-control" accept="image/*" aria-label="Upload Image">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="showToast('Image uploaded!')">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body">
+            Notification message
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Function to show toast notifications
+        function showToast(message) {
+            const toastBody = document.querySelector('.toast-body');
+            toastBody.textContent = message;
+            const toast = new bootstrap.Toast(document.getElementById('toast'));
+            toast.show();
+        }
+
+        // Dark mode toggle functionality
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
